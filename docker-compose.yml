@@ -1,0 +1,30 @@
+
+
+services:
+  backend:
+    build: ./server_todo_list
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: mongodb
+      DB_PORT: 27017
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./client_todo_list
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
