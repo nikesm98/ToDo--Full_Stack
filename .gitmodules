@@ -1,0 +1,3 @@
+[submodule "client_todo_list"]
+	path = client_todo_list
+	url = https://github.com/nikesm98/client_todo_list
