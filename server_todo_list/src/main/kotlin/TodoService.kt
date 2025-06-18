@@ -30,6 +30,6 @@ class TodoService(private val database: MongoDatabase) {
     }
 
     suspend fun delete(id: String): Boolean = withContext(Dispatchers.IO) {
-        collection.deleteOne(Filters.eq("_id", ObjectId(id))).deletedCount > 0
+        collection.deleteOne(Filters.eq("id", id)).deletedCount > 0
     }
 }
